@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIA Mahasiswa - Live Prototype</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HALAMAN LOGIN -->
+    <div id="login-section" class="container">
+        <div class="card">
+            <h2>Login SIA Mahasiswa</h2>
+            <p>Masukkan akun akademik Anda</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <label>NIM / Username</label>
+                    <input type="text" id="nim" placeholder="Masukkan NIM Anda" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn">Masuk SIA</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- HALAMAN DASHBOARD SIA (SETELAH LOGIN) -->
+    <div id="dashboard-section" class="container hidden">
+        <header>
+            <h1>Sistem Informasi Akademik</h1>
+            <button id="logout-btn" class="btn-secondary">Keluar</button>
+        </header>
+
+        <div class="profile-box">
+            <h3>Profil Mahasiswa</h3>
+            <p><strong>Nama:</strong> Chandra Sekhara</p>
+            <p><strong>NIM:</strong> <span id="display-nim"></span></p>
+            <p><strong>Program Studi:</strong> Informatics / Teknologi Informasi</p>
+        </div>
+
+        <div class="menu-content">
+            <h3>Jadwal & Mata Kuliah Aktif</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Mata Kuliah</th>
+                        <th>SKS</th>
+                        <th>Hari</th>
+                        <th>Ruangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Enterprise Resource Planning (SAP)</td>
+                        <td>3</td>
+                        <td>Senin</td>
+                        <td>Lab Komputer</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Analisis Proses Bisnis</td>
+                        <td>3</td>
+                        <td>Selasa</td>
+                        <td>Ruang Kelas</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Pemrograman Web Lanjut</td>
+                        <td>3</td>
+                        <td>Rabu</td>
+                        <td>Lab Terpadu</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const loginSection = document.getElementById('login-section');
+        const dashboardSection = document.getElementById('dashboard-section');
+        const displayNim = document.getElementById('display-nim');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nimInput = document.getElementById('nim').value;
+            
+            // Menampilkan data NIM pada dashboard
+            displayNim.textContent = nimInput;
+            loginSection.classList.add('hidden');
+            dashboardSection.classList.remove('hidden');
+        });
+
+        logoutBtn.addEventListener('click', function() {
+            dashboardSection.classList.add('hidden');
+            loginSection.classList.remove('hidden');
+            document.getElementById('login-form').reset();
+        });
+    </script>
+</body>
+</html>
