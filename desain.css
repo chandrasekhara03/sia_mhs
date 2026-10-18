@@ -1,0 +1,221 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+body {
+    background-color: #dbe4e8;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* TAMPILAN LOGIN KLASIK */
+.login-wrapper {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 20px;
+}
+
+.watermark-title {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.watermark-title h2 {
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.watermark-title h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+/* KOTAK POPUP LOGIN */
+.login-box {
+    width: 380px;
+    background: #eef2f5;
+    border: 2px solid #3b82f6;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    margin-bottom: 40px;
+}
+
+.login-header {
+    background: #3b82f6;
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.login-body {
+    padding: 20px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.form-row label {
+    width: 80px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-row input {
+    flex: 1;
+    padding: 5px 8px;
+    border: 1px solid #94a3b8;
+    background: #ffffff;
+    font-size: 13px;
+    border-radius: 2px;
+}
+
+.btn-row {
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.btn-login {
+    background: linear-gradient(to bottom, #60a5fa, #2563eb);
+    color: white;
+    border: 1px solid #1d4ed8;
+    padding: 5px 25px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background: linear-gradient(to bottom, #3b82f6, #1d4ed8);
+}
+
+.forgot-pass {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.forgot-pass a {
+    color: #0000ff;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+/* FOOTER PERHATIAN */
+.footer-warning {
+    text-align: center;
+    font-size: 11px;
+    color: #475569;
+    line-name: 1.5;
+    max-width: 850px;
+}
+
+.footer-warning p {
+    margin-bottom: 8px;
+}
+
+.red-text {
+    color: #dc2626;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.footer-warning a {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.mt-10 {
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* DASHBOARD SETELAH LOGIN */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 20px;
+    color: #1e293b;
+}
+
+.btn-secondary {
+    padding: 6px 12px;
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.profile-box, .menu-content {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #e2e8f0;
+}
+
+.profile-box h3, .menu-content h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #334155;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+table, th, td {
+    border: 1px solid #cbd5e1;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    font-size: 13px;
+}
+
+th {
+    background-color: #f1f5f9;
+}
