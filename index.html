@@ -6,7 +6,13 @@
     <title>Sistem Informasi Akademik - Universitas Sanata Dharma</title>
     <link rel="stylesheet" href="desain.css">
     <style>
-        /* Gaya Navbar & Tata Letak Menu SIA Klasik */
+        /* CSS Khusus SIA USD Klasik */
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background-color: #dbe4e8;
+            margin: 0;
+            padding: 0;
+        }
         .top-navbar {
             width: 100%;
             background-color: #b0e0e6;
@@ -14,7 +20,7 @@
             display: flex;
             padding: 2px 10px;
             font-size: 11px;
-            font-family: Tahoma, sans-serif;
+            box-sizing: border-box;
         }
         .top-navbar a {
             color: #000;
@@ -28,47 +34,45 @@
             font-weight: bold;
         }
         .main-content {
-            width: 100%;
-            max-width: 1100px;
-            margin: 10px auto;
+            width: 98%;
+            max-width: 1200px;
+            margin: 10px auto 40px auto;
             background: #ffffff;
             border: 1px solid #b0c4de;
             padding: 15px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-sizing: border-box;
         }
         .section-title {
             background: linear-gradient(to bottom, #d0e8f8, #b0d8f0);
             border: 1px solid #87ceeb;
             color: #003366;
-            padding: 6px 12px;
-            font-size: 13px;
+            padding: 5px 10px;
+            font-size: 12px;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         .sia-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 11px;
-            margin-top: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
         }
         .sia-table th, .sia-table td {
             border: 1px solid #87ceeb;
             padding: 4px 6px;
-            text-align: left;
         }
         .sia-table th {
             background-color: #d0e8f8;
             color: #003366;
             text-align: center;
         }
-        .red-row {
-            background-color: #ff0000;
-            color: #ffffff;
-        }
-        .red-row td {
-            border-color: #cc0000;
-        }
+        .center-text { text-align: center; }
+        .red-link { color: red; text-decoration: underline; }
+        .red-row { background-color: #ff0000; color: #ffffff; }
+        .red-row td { border-color: #cc0000; }
         .bottom-bar {
             width: 100%;
             position: fixed;
@@ -81,39 +85,10 @@
             border-top: 1px solid #87ceeb;
             font-weight: bold;
         }
-        .ktm-container {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 0;
-        }
-        .ktm-card {
-            width: 420px;
-            height: 250px;
-            background: linear-gradient(135deg, #a80000, #ff6600, #ffcc00);
-            border-radius: 12px;
-            padding: 15px;
-            color: white;
-            position: relative;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        .ktm-photo {
-            width: 100px;
-            height: 120px;
-            border: 2px solid white;
-            position: absolute;
-            right: 20px;
-            top: 50px;
-            object-fit: cover;
-            background: #ccc;
-        }
-        .qr-code {
-            width: 200px;
-            height: 200px;
-            border: 1px solid #ccc;
-            padding: 5px;
-            background: white;
+        .scroll-container {
+            max-height: 450px;
+            overflow-y: auto;
+            border: 1px solid #87ceeb;
         }
     </style>
 </head>
@@ -155,13 +130,12 @@
         </div>
     </div>
 
-    <!-- DASHBOARD UTAMA DENGAN NAVIGASI MULTI-MENU -->
+    <!-- DASHBOARD UTAMA -->
     <div id="dashboard-section" class="hidden" style="width: 100%;">
-        <!-- BAR NAVIGASI MENU -->
+        <!-- NAVBAR SIA -->
         <div class="top-navbar">
             <a href="#" onclick="showMenu('biodata')">Home/Biodata</a>
             <a href="#" onclick="showMenu('jadwal')">Jadwal Kuliah</a>
-            <a href="#" onclick="showMenu('dosen')">Informasi Dosen</a>
             <a href="#" onclick="showMenu('nilai')">Nilai Per Semester</a>
             <a href="#" onclick="showMenu('transkrip')">Transkrip Nilai</a>
             <a href="#" onclick="showMenu('poin')">Poin Kegiatan</a>
@@ -171,238 +145,199 @@
         </div>
 
         <div class="main-content">
-            <!-- MENU 1: BIODATA -->
+            <!-- 1. BIODATA MAHASISWA -->
             <div id="menu-biodata" class="menu-tab">
                 <div class="section-title">BIODATA MAHASISWA</div>
                 <table class="sia-table">
                     <tr>
                         <td rowspan="8" style="width: 120px; text-align: center;">
-                            <img src="https://via.placeholder.com/100x120" alt="Foto Mahasiswa" style="border: 1px solid #999;">
+                            <img src="https://via.placeholder.com/100x120" alt="Foto Mahasiswa">
                         </td>
-                        <td style="width: 150px;"><strong>Nomor Induk Mahasiswa</strong></td>
+                        <td style="width: 180px;"><strong>Nomor Induk Mahasiswa</strong></td>
                         <td>: 235314020</td>
                     </tr>
-                    <tr>
-                        <td><strong>Nama</strong></td>
-                        <td>: CHANDRA SEKHARA</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Jenis Kelamin</strong></td>
-                        <td>: Laki-Laki</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tempat / Tanggal Lahir</strong></td>
-                        <td>: Palu, 28 September 2004</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Alamat Sekarang</strong></td>
-                        <td>: No. 204, Gang Ampel, Jl. Kanigoro, Maguwoharjo, Depok, Sleman, Yogyakarta</td>
-                    </tr>
-                    <tr>
-                        <td><strong>No. HP (WA)</strong></td>
-                        <td>: 085727120659</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Agama</strong></td>
-                        <td>: Hindu</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Status Registrasi</strong></td>
-                        <td>: <span style="color: green; font-weight: bold;">Sudah Registrasi</span></td>
-                    </tr>
+                    <tr><td><strong>Nama</strong></td><td>: CHANDRA SEKHARA</td></tr>
+                    <tr><td><strong>Jenis Kelamin</strong></td><td>: Laki-Laki</td></tr>
+                    <tr><td><strong>Tempat / Tanggal Lahir</strong></td><td>: Palu, 28 September 2004</td></tr>
+                    <tr><td><strong>Alamat Sekarang</strong></td><td>: No. 204, Gang Ampel, Jl. Kanigoro, Maguwoharjo, Depok, Sleman, Yogyakarta, Indonesia</td></tr>
+                    <tr><td><strong>No. HP (WA)</strong></td><td>: 085727120659</td></tr>
+                    <tr><td><strong>Agama</strong></td><td>: Hindu</td></tr>
+                    <tr><td><strong>Status Registrasi</strong></td><td>: Sudah Registrasi</td></tr>
                 </table>
             </div>
 
-            <!-- MENU 2: JADWAL KULIAH -->
+            <!-- 2. JADWAL KULIAH -->
             <div id="menu-jadwal" class="menu-tab hidden">
                 <div class="section-title">LIHAT JADWAL KULIAH</div>
-                <table class="sia-table" style="text-align: center;">
+                <table class="sia-table center-text">
                     <thead>
                         <tr>
-                            <th>Hari/Jam</th>
-                            <th>07-08</th>
-                            <th>08-09</th>
-                            <th>09-10</th>
-                            <th>10-11</th>
-                            <th>11-12</th>
-                            <th>13-14</th>
-                            <th>14-15</th>
-                            <th>15-16</th>
+                            <th>Hari/Jam</th><th>06-07</th><th>07-08</th><th>08-09</th><th>09-10</th><th>10-11</th><th>11-12</th><th>12-13</th><th>13-14</th><th>14-15</th><th>15-16</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Selasa</strong></td>
-                            <td colspan="3" style="background: #e6f2ff;">INMA109 - Analisis Proses Bisnis (LKD.A FST)</td>
-                            <td colspan="2" style="background: #e6f2ff;">INMA109 - Analisis Proses Bisnis (Kelas CP)</td>
-                            <td colspan="3" style="background: #e6f2ff;">SDEV207 - UI/UX (K.205 Kelas A)</td>
+                            <td><strong>Selasa</strong></td><td></td>
+                            <td colspan="5" style="background:#e6f2ff;">INMA109 - Analisis Proses Bisnis (LKD.A FST Kelas CP)</td><td></td>
+                            <td colspan="3" style="background:#e6f2ff;">SDEV207 - UI/UX (K.205 Kelas A)</td>
                         </tr>
                         <tr>
-                            <td><strong>Rabu</strong></td>
-                            <td colspan="3"></td>
-                            <td colspan="3" style="background: #e6f2ff;">GRLE51P - PMBG (K.205 Kelas A)</td>
-                            <td colspan="2"></td>
+                            <td><strong>Rabu</strong></td><td colspan="4"></td>
+                            <td colspan="3" style="background:#e6f2ff;">GRLE51P - PMBG (K.205 Kelas A)</td><td colspan="3"></td>
                         </tr>
                         <tr>
-                            <td><strong>Kamis</strong></td>
-                            <td colspan="5"></td>
-                            <td colspan="3" style="background: #e6f2ff;">GEAI51P - AG (Lab Jaringan Kelas A)</td>
+                            <td><strong>Kamis</strong></td><td colspan="6"></td>
+                            <td colspan="3" style="background:#e6f2ff;">GEAI51P - AG (Lab Jaringan Kelas A)</td><td></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- MENU 3: INFORMASI DOSEN -->
-            <div id="menu-dosen" class="menu-tab hidden">
-                <div class="section-title">INFORMASI DOSEN MENGAJAR</div>
-                <p><strong>Nama Dosen:</strong> Ir. Rosalia Arum Kumalasanti M.T.</p>
-                <table class="sia-table" style="text-align: center;">
-                    <thead>
-                        <tr>
-                            <th>Hari</th>
-                            <th>10-11</th>
-                            <th>11-12</th>
-                            <th>12-13</th>
-                            <th>13-14</th>
-                            <th>14-15</th>
-                            <th>15-16</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Senin</strong></td>
-                            <td colspan="3" style="background: #e6f2ff;">INTS203 - PemCitra B (K.312)</td>
-                            <td colspan="3" style="background: #e6f2ff;">DAIS21W - SISCER D (K.311)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Selasa</strong></td>
-                            <td colspan="3" style="background: #e6f2ff;">DAIS32W - ML D (Lab Basis Data A)</td>
-                            <td colspan="3" style="background: #e6f2ff;">INTS205 - COMPVIS A (LKD.B FST)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- MENU 4: NILAI PER SEMESTER -->
+            <!-- 3. NILAI PER SEMESTER -->
             <div id="menu-nilai" class="menu-tab hidden">
-                <div class="section-title">NILAI PER SEMESTER</div>
-                <p><strong>IPK:</strong> 3.75 || <strong>Jumlah SKS Lulus:</strong> 130</p>
+                <div class="section-title">Nilai Per Semester</div>
                 <table class="sia-table">
-                    <thead>
-                        <tr>
-                            <th>Kode</th>
-                            <th>Nama Mata Kuliah</th>
-                            <th>SKS</th>
-                            <th>Nilai</th>
-                        </tr>
-                    </thead>
+                    <tr><td style="width:200px;"><strong>Nama</strong></td><td>: CHANDRA SEKHARA</td></tr>
+                    <tr><td><strong>NIM</strong></td><td>: 235314020</td></tr>
+                    <tr><td><strong>Indeks Prestasi Kumulatif (IPK)</strong></td><td>: 3.75</td></tr>
+                    <tr><td><strong>Jumlah Kredit Kumulatif</strong></td><td>: 130</td></tr>
+                    <tr><td><strong>Jumlah SKS Lulus</strong></td><td>: 130</td></tr>
+                </table>
+
+                <!-- Semester 1 -->
+                <p><strong>Semester : 1 || Tahun Akademik : 2023 / 2024 / Gasal || IPS : 3.71</strong></p>
+                <table class="sia-table">
+                    <thead><tr><th>Kode</th><th>Nama Mata Kuliah</th><th>SKS</th><th>Nilai</th><th>SWTS</th><th>Evaluasi</th><th>REPA</th><th>REPK</th></tr></thead>
                     <tbody>
-                        <tr><td>PPKMB 001</td><td>Pendampingan Mahasiswa Baru 1</td><td>0</td><td>A</td></tr>
-                        <tr><td>MATE101</td><td>Logika Matematika</td><td>2</td><td>B+</td></tr>
-                        <tr><td>INFO103</td><td>Informatika dan Dampak Sosialnya</td><td>2</td><td>B+</td></tr>
-                        <tr><td>MATE102</td><td>Matematika Diskret</td><td>3</td><td>B</td></tr>
-                        <tr><td>INFO102</td><td>Sistem Digital</td><td>2</td><td>A</td></tr>
-                        <tr><td>INFO101</td><td>Algoritma dan Pemrograman</td><td>3</td><td>A</td></tr>
+                        <tr><td>PPKMB 001</td><td>Pendampingan Mahasiswa Baru 1</td><td>0</td><td>A</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3.18</td><td>3.45</td></tr>
+                        <tr><td>MATE101</td><td>Logika Matematika</td><td>2</td><td>B+</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3.76</td><td>3.3</td></tr>
+                        <tr><td>INFO103</td><td>Informatika dan Dampak Sosialnya</td><td>2</td><td>B+</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3.06</td><td>3.43</td></tr>
+                        <tr><td>MATE102</td><td>Matematika Diskret</td><td>3</td><td>B</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>-</td><td>-</td></tr>
+                        <tr><td>INFO102</td><td>Sistem Digital</td><td>2</td><td>A</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3.94</td><td>3.31</td></tr>
+                        <tr><td>INFO101</td><td>Algoritma dan Pemrograman</td><td>3</td><td>A</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3.41</td><td>3.4</td></tr>
+                    </tbody>
+                </table>
+
+                <!-- Semester 6 -->
+                <p><strong>Semester : 6 || Tahun Akademik : 2025 / 2026 / Genap || IPS : 3.89</strong></p>
+                <table class="sia-table">
+                    <thead><tr><th>Kode</th><th>Nama Mata Kuliah</th><th>SKS</th><th>Nilai</th><th>SWTS</th><th>Evaluasi</th><th>REPA</th><th>REPK</th></tr></thead>
+                    <tbody>
+                        <tr><td>PENL101</td><td>Metodologi Penelitian</td><td>4</td><td>A-</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3.47</td><td>3.54</td></tr>
+                        <tr><td>STDL101</td><td>Kuliah Kerja Nyata</td><td>3</td><td>A</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3.59</td><td>3.27</td></tr>
+                        <tr><td>MBKM204</td><td>Study Independen Full Stack Programming (MBKM)</td><td>3</td><td>A-</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3</td><td>3.25</td></tr>
+                        <tr><td>MBKM211</td><td>Study Independen Data Analysis (MBKM)</td><td>2</td><td>A-</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3</td><td>3.25</td></tr>
+                        <tr><td>MBKM216</td><td>Softskill Team Work (MBKM)</td><td>3</td><td>A</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3</td><td>3.4</td></tr>
+                        <tr><td>MBKM217</td><td>Softskill Manajemen Proyek (MBKM)</td><td>3</td><td>A</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3</td><td>3.4</td></tr>
+                        <tr><td>MBKM202</td><td>Study Independen Computer Developer & Operational (MBKM)</td><td>3</td><td>A</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3.06</td><td>3.35</td></tr>
+                        <tr><td>MBKM221</td><td>Study Independen Product Design (MBKM)</td><td>3</td><td>A</td><td><a href="#" class="red-link">klik disini</a></td><td><a href="#" class="red-link">klik disini</a></td><td>3</td><td>3</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- MENU 5: TRANSKRIP NILAI -->
+            <!-- 4. TRANSKRIP NILAI -->
             <div id="menu-transkrip" class="menu-tab hidden">
-                <div class="section-title">DAFTAR PRESTASI AKADEMIK MAHASISWA (TRANSKRIP)</div>
+                <div class="section-title">Transkrip Nilai</div>
+                <div class="center-text">
+                    <h3>DAFTAR PRESTASI AKADEMIK MAHASISWA</h3>
+                    <p><em>OFFICIAL TRANSCRIPT OF RECORD</em></p>
+                </div>
                 <table class="sia-table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Matakuliah</th>
-                            <th>Course Title</th>
-                            <th>Kode Mtk</th>
-                            <th>SKS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>Algoritma dan Pemrograman</td><td>Algorithm and Programming</td><td>INFO101</td><td>3</td></tr>
-                        <tr><td>2</td><td>Algoritma Optimisasi</td><td>Optimization Algorithm</td><td>SDEV204</td><td>3</td></tr>
-                        <tr><td>3</td><td>Aljabar Linier</td><td>Linear Algebra</td><td>MATE105</td><td>3</td></tr>
-                        <tr><td>4</td><td>Analisis dan Strategi Algoritma</td><td>Algorithm Analysis and Strategy</td><td>INFO113</td><td>3</td></tr>
-                    </tbody>
+                    <tr><td style="width:200px;"><strong>Nama / Name</strong></td><td>: <strong>CHANDRA SEKHARA</strong></td></tr>
+                    <tr><td><strong>Tempat dan tanggal lahir</strong></td><td>: Palu, 28 September 2004</td></tr>
+                    <tr><td><strong>Program Studi / Study Program</strong></td><td>: Informatika / Informatics</td></tr>
+                    <tr><td><strong>Fakultas / Faculty</strong></td><td>: Sains dan Teknologi / Faculty of Science and Technology</td></tr>
+                    <tr><td><strong>Jenjang / Degree</strong></td><td>: S1</td></tr>
+                    <tr><td><strong>Nomor Mahasiswa / Identification Number</strong></td><td>: 235314020</td></tr>
+                    <tr><td><strong>Tahun Kurikulum</strong></td><td>: <select><option>2021</option></select> <em>*Jika Tidak Tahu, Tanyakan Kepada Dosen Pembimbing Akademik</em></td></tr>
                 </table>
+
+                <div class="scroll-container">
+                    <table class="sia-table">
+                        <thead>
+                            <tr>
+                                <th>No</th><th>Nama Matakuliah</th><th>Course Title</th><th>Kelompok Mtk</th><th>Course Group</th><th>Kode Mtk</th><th>K</th><th>HM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Algoritma dan Pemrograman</td><td>Algorithm and Programming</td><td>Mata Kuliah Algoritma dan Pemrograman</td><td>Algorithm and Programming Courses</td><td>INFO101</td><td>3</td><td></td></tr>
+                            <tr><td>2</td><td>Algoritma Optimisasi</td><td>Optimization Algorithm</td><td>Mata Kuliah Sistem Cerdas</td><td>Intellegence System Courses</td><td>SDEV204</td><td>3</td><td></td></tr>
+                            <tr><td>3</td><td>Aljabar Linier</td><td>Linear Algebra</td><td>Mata Kuliah Matematika dan Statistika</td><td>Mathematics and Statistic Courses</td><td>MATE105</td><td>3</td><td></td></tr>
+                            <tr><td>4</td><td>Analisis dan Strategi Algoritma</td><td>Algorithm Analysis and Strategy</td><td>Mata Kuliah Algoritma dan Pemrograman</td><td>Algorithm and Programming Courses</td><td>INFO113</td><td>3</td><td></td></tr>
+                            <tr><td>22</td><td>Kuliah Kerja Nyata</td><td>Student Service Program</td><td>Mata Kuliah Kecakapan Hidup</td><td>Life Skills Courses</td><td>STDL101</td><td>3</td><td></td></tr>
+                            <tr><td>26</td><td>Metodologi Penelitian</td><td>Research Methodology</td><td>Mata Kuliah Kecakapan Hidup</td><td>Life Skills Courses</td><td>PENL101</td><td>4</td><td></td></tr>
+                            <tr><td>27</td><td>Pembelajaran Mesin</td><td>Machine Learning</td><td>Mata Kuliah Sistem Cerdas</td><td>Intellegence System Courses</td><td>INFO115</td><td>3</td><td></td></tr>
+                            <tr><td>51</td><td>Study Independen Product Design</td><td>Independent Study: Product Design</td><td>Mata Kuliah Kecakapan Hidup</td><td>Life Skills Courses</td><td>MBKM221</td><td>3</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Jumlah Kredit Kumulatif / Total Of Credit : 130</strong><br>
+                <strong>Indeks Prestasi Kumulatif / Cummulative GPA : 3.75</strong></p>
             </div>
 
-            <!-- MENU 6: POIN KEGIATAN -->
+            <!-- 5. POIN KEGIATAN -->
             <div id="menu-poin" class="menu-tab hidden">
-                <div class="section-title">POIN KEGIATAN KEMAHASISWAAN</div>
-                <table class="sia-table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Kategori</th>
-                            <th>Jenis</th>
-                            <th>Peran</th>
-                            <th>Poin</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="red-row">
-                            <td>1</td>
-                            <td>Formasi Cerdas Humanis 5 (FCH 5)</td>
-                            <td>Pelatihan/ Workshop/ Seminar</td>
-                            <td>Peserta persiapan dunia kerja (1 hari)</td>
-                            <td>10</td>
-                        </tr>
-                        <tr class="red-row">
-                            <td>2</td>
-                            <td>Formasi Cerdas Humanis 4 (FCH 4)</td>
-                            <td>Kepanitiaan</td>
-                            <td>Anggota Panitia tingkat universitas</td>
-                            <td>15</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="section-title">Daftar Poin Kegiatan Kemahasiswaan Anda:</div>
+                <div class="scroll-container">
+                    <table class="sia-table">
+                        <thead>
+                            <tr><th>No.</th><th>Kategori</th><th>Jenis</th><th>Peran</th><th>Poin</th><th>Verifikasi</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="red-row"><td>1</td><td>Formasi Cerdas Humanis 5 (FCH 5) : Future Orientation (FO)</td><td>Pelatihan/ workshop/ seminar tentang persiapan dunia kerja</td><td>Mengikuti Pelatihan/Workshop/Seminar (1 hari)</td><td>10</td><td>N</td></tr>
+                            <tr class="red-row"><td>2</td><td>Formasi Cerdas Humanis 4 (FCH 4) : Global Competence (GC)</td><td>Kepanitiaan</td><td>Menjadi Anggota Panitia tingkat universitas</td><td>15</td><td>N</td></tr>
+                            <tr class="red-row"><td>12</td><td>Formasi Cerdas Humanis 4 (FCH 4) : Global Competence (GC)</td><td>Organisasi kemahasiswaan (ormawa)</td><td>Menjadi anggota pengurus BEM/ DPM Fakultas/Jurusan/Prodi</td><td>30</td><td>N</td></tr>
+                            <tr class="red-row"><td>17</td><td>Inisiasi Universitas (Inisiasi Sanata Dharma - INSADHA)</td><td>Inisiasi Universitas</td><td>Menjadi peserta Inisiasi Universitas</td><td>0</td><td>N</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Jumlah Poin:</strong><br>Poin yang BELUM diverifikasi: <strong>270</strong></p>
             </div>
 
-            <!-- MENU 7: E-KTM -->
+            <!-- 6. E-KTM -->
             <div id="menu-ktm" class="menu-tab hidden">
                 <div class="section-title">KARTU TANDA MAHASISWA ELEKTRONIK (e-KTM)</div>
-                <div class="ktm-container">
-                    <div class="ktm-card">
+                <div style="display:flex; justify-content:center; gap:20px; align-items:center; padding:20px;">
+                    <div style="width:400px; height:240px; background:linear-gradient(135deg, #a80000, #ff6600, #ffcc00); border-radius:10px; padding:15px; color:white; position:relative;">
                         <h3>UNIVERSITAS SANATA DHARMA</h3>
-                        <p style="font-size: 11px;">Cerdas & Humanis</p>
+                        <p style="font-size:10px;">Cerdas & Humanis</p>
                         <br>
                         <h2>CHANDRA SEKHARA</h2>
                         <p>NIM: 235314020</p>
                         <p>S1 - Informatika</p>
-                        <div class="ktm-photo"></div>
                     </div>
-                    <div class="qr-code">
+                    <div>
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=235314020_CHANDRA_SEKHARA" alt="QR Code">
                     </div>
                 </div>
             </div>
 
-            <!-- MENU 8: PERSETUJUAN LAPORAN -->
+            <!-- 7. PERSETUJUAN LAPORAN -->
             <div id="menu-laporan" class="menu-tab hidden">
                 <div class="section-title">PERSETUJUAN LAPORAN PELAKSANAAN KEGIATAN PERKULIAHAN</div>
-                <table class="sia-table">
+                <table class="sia-table" style="width:60%; margin: 10px auto;">
+                    <tr><td style="width:150px;"><strong>Tahun Akademik</strong></td><td>: 2026</td></tr>
+                    <tr><td><strong>Semester</strong></td><td>: <select><option>Gasal</option></select></td></tr>
+                    <tr><td colspan="2" class="center-text"><button style="padding:3px 15px;">TAMPILKAN MATAKULIAH</button></td></tr>
+                </table>
+
+                <div class="section-title" style="font-size:11px;">Daftar Matakuliah</div>
+                <table class="sia-table center-text">
                     <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Kode Mtk</th>
-                            <th>Nama Matakuliah</th>
-                            <th>Kelas</th>
-                            <th>Jml Pertemuan Selesai</th>
-                        </tr>
+                        <tr><th>No</th><th>Kode Mtk</th><th>Nama Matakuliah</th><th>Kelas</th><th>Jml Pertemuan Selesai</th></tr>
                     </thead>
                     <tbody>
                         <tr><td>1</td><td>GEAI51P</td><td>AI Generatif</td><td>A</td><td>16</td></tr>
                         <tr><td>2</td><td>INMA109</td><td>Analisis Proses Bisnis</td><td>CP</td><td>16</td></tr>
-                        <tr><td>3</td><td>SDEV207</td><td>Desain UI/UX</td><td>A</td><td>6</td></tr>
+                        <tr><td>3</td><td>INMA109</td><td>Analisis Proses Bisnis</td><td>C</td><td>16</td></tr>
+                        <tr><td>4</td><td>SDEV207</td><td>Desain UI/UX</td><td>A</td><td>7</td></tr>
+                        <tr><td>5</td><td>GRLE51P</td><td>Pembelajaran Mesin Berbasis Graph</td><td>A</td><td>16</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- FOOTER BAR KLASEK -->
+        <!-- FOOTER BOTTOM BAR -->
         <div class="bottom-bar">
             NIM: 235314020 || Nama: CHANDRA SEKHARA || Prodi: Informatika || Tahun Akademik: 2026 / 2027 / Gasal
         </div>
